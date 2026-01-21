@@ -63,3 +63,46 @@ The request must be sent in **JSON format**.
   "password": "securePassword123"
 }
 
+
+```
+
+# User Profile API Documentation
+
+## Endpoint
+`GET /users/profile`
+
+## Description
+This endpoint is used to **fetch the authenticated user's profile details**.  
+It requires a valid **JWT authentication token** and returns the user information associated with the logged-in user.
+
+---
+
+## Authentication
+This endpoint is **protected**.
+
+### Authorization Header
+```http
+Authorization: Bearer <JWT_TOKEN>
+
+
+```
+
+# User Logout API Documentation
+
+## Endpoint
+`GET /users/logout`
+
+## Description
+This endpoint is used to **log out the authenticated user**.  
+It clears the authentication cookie and **invalidates the JWT token** by adding it to a blacklist to prevent further use.
+
+---
+
+## Authentication
+This endpoint is **protected**.
+
+### Authorization Header
+```http
+Authorization: Bearer <JWT_TOKEN>
+
+
