@@ -31,6 +31,10 @@ The request must be sent in **JSON format**.
   "password": "securePassword123"
 }
 
+```
+
+
+
 
 # User Login API Documentation
 
