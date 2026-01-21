@@ -30,3 +30,32 @@ The request must be sent in **JSON format**.
   "email": "mdjannishar@gmail.com",
   "password": "securePassword123"
 }
+
+
+# User Login API Documentation
+
+## Endpoint
+`POST /users/login`
+
+## Description
+This endpoint is used to **authenticate an existing user**.  
+It validates the email and password, verifies the credentials from the database, and returns a **JWT authentication token** upon successful login.
+
+---
+
+## Request Body
+The request must be sent in **JSON format**.
+
+### Required Fields
+| Field | Type | Description |
+|------|------|-------------|
+| email | String | Registered and valid email address |
+| password | String | Password (minimum 6 characters) |
+
+### Example Request
+```json
+{
+  "email": "mdjannishar@gmail.com",
+  "password": "securePassword123"
+}
+
