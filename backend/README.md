@@ -105,4 +105,78 @@ This endpoint is **protected**.
 ```http
 Authorization: Bearer <JWT_TOKEN>
 
+```
+
+# Captain Registration API Documentation
+
+## Endpoint
+`POST /captains/register`
+
+## Description
+This endpoint is used to **register a new captain (driver)** in the system.  
+It validates input data, checks if the captain already exists, hashes the password, stores captain and vehicle details, and returns a **JWT authentication token** upon successful registration.
+
+---
+
+## Request Body
+The request must be sent in **JSON format**.
+
+### Required Fields
+
+| Field | Type | Description |
+|------|------|-------------|
+| fullname.firstname | String | Captain’s first name (minimum 3 characters) |
+| fullname.lastname | String | Captain’s last name (optional, minimum 3 characters if provided) |
+| email | String | Valid and unique email address |
+| password | String | Password (minimum 6 characters) |
+| vehicle.color | String | Vehicle color (minimum 3 characters) |
+| vehicle.plate | String | Vehicle plate number (minimum 3 characters) |
+| vehicle.capacity | Number | Vehicle seating capacity (minimum 1) |
+| vehicle.vehicleType | String | Vehicle type (`car`, `motorcycle`, `auto`) |
+
+---
+
+### Example Request
+```json
+{
+  "fullname": {
+    "firstname": "Rahul",
+    "lastname": "Kumar"
+  },
+  "email": "rahul.captain@gmail.com",
+  "password": "securePassword123",
+  "vehicle": {
+    "color": "White",
+    "plate": "BR01AB1234",
+    "capacity": 4,
+    "vehicleType": "car"
+  }
+}
+
+```
+### Success Response
+
+**Status Code:** `201 Created`
+
+```json
+{
+  "token": "jwt_auth_token_here",
+  "captain": {
+    "_id": "64f1abc123...",
+    "fullname": {
+      "firstname": "Rahul",
+      "lastname": "Kumar"
+    },
+    "email": "rahul.captain@gmail.com",
+    "status": "inactive",
+    "vehicle": {
+      "color": "White",
+      "plate": "BR01AB1234",
+      "capacity": 4,
+      "vehicleType": "car"
+    }
+  }
+}
+
+
 
