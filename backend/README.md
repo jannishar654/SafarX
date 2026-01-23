@@ -179,4 +179,84 @@ The request must be sent in **JSON format**.
 }
 
 
+```
+# Captain Profile API Documentation
+
+## Endpoint
+`GET /captains/profile`
+
+## Description
+This endpoint is used to **fetch the authenticated captain’s profile details**.  
+It requires a valid **JWT authentication token** and returns the captain information associated with the logged-in captain.
+
+---
+
+## Authentication
+This endpoint is **protected**.
+
+### Authorization Header
+```http
+Authorization: Bearer <JWT_TOKEN>
+
+```
+### Example Response
+
+**Status Code:** `200 OK`
+
+```json
+{
+  "captain": {
+    "_id": "64f1abc123...",
+    "fullname": {
+      "firstname": "Rahul",
+      "lastname": "Kumar"
+    },
+    "email": "rahul.captain@gmail.com",
+    "status": "inactive",
+    "vehicle": {
+      "color": "White",
+      "plate": "BR01AB1234",
+      "capacity": 4,
+      "vehicleType": "car"
+    }
+  }
+}
+
+```
+
+# Captain Logout API Documentation
+
+## Endpoint
+`GET /captains/logout`
+
+## Description
+This endpoint is used to **log out the authenticated captain**.  
+It clears the authentication cookie and **invalidates the JWT token** by adding it to a blacklist to prevent further use.
+
+---
+
+## Authentication
+This endpoint is **protected**.
+
+### Authorization Header
+```http
+Authorization: Bearer <JWT_TOKEN>
+
+```
+### Example Response
+
+**Status Code:** `200 OK`
+
+```json
+{
+  "message": "Logged out successfully"
+}
+```
+
+
+
+
+
+
+
 
