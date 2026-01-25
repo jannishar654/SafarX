@@ -20,7 +20,7 @@ const CaptainLogin = () => {
   return (
     <div className='p-7 flex flex-col justify-between h-screen'>
       <div>
-        <img className='w-16 mb-10' src="/HomeLogo.png" alt="Logo" />
+        <img className='w-20 mb-3' src="/HomeLogo.png" alt="Logo" />
         <div className='bg-white pb-7 py-4 px-4'></div>
       <form onSubmit={(e) =>{
         submitHandler(e)
@@ -46,7 +46,7 @@ const CaptainLogin = () => {
          className='bg-[#111] text-white font-semibold mb-3 rounded px-4 py-2  w-full text-lg placeholder:text-base'
         >Login</button>
 
-        <p className='text-center'>Join a fleet? <Link to='/signup' className='text-blue-600'> Register as a Captain </Link></p>
+        <p className='text-center'>Join a fleet? <Link to='/captain-signup' className='text-blue-600'> Register as a Captain </Link></p>
       </form>
       </div>
 
