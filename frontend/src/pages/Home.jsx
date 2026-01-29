@@ -10,7 +10,10 @@ const Home = () => {
    const[destination, setDestination] = useState('')
    const [panelOpen, setPanelOpen] = useState (false)
    const panelRef=useRef(null)
+   const vehiclePanelRef=useRef (null)
    const panelCloseRef=useRef (null)
+   const[vehiclePanel , setVehiclePanel] = useState (false)
+
 
 
  
@@ -43,10 +46,25 @@ const Home = () => {
 
   }, [panelOpen])
 
+  useGSAP(function() {
+    if(vehiclePanel) {
+      gsap.to(vehiclePanelRef.current, {
+       transform: 'translateY(0)',
+      })
+    } else{
+      gsap.to(vehiclePanelRef.current, {
+        transform: 'translateY(100%)',
+       })
+    }
+
+  }, [vehiclePanel])
+
   return (
-    <div className='h-screen relative'>
+    <div className='h-screen relative overflow-hidden'>
       <img className="w-16 absolute left-5 top-5" src="/HomeLogo.png" alt="Home Logo" />
-     <div className='h-screen w-screen '>
+     <div
+     
+      className='h-screen w-screen '>
       {/*Image for temporary use */}
       <img className='h-full w-full object-cover ' src="https://miro.medium.com/v2/resize:fit:1400/0*gwMx05pqII5hbfmX.gif" alt="Home Page" />
      </div>
@@ -86,9 +104,57 @@ const Home = () => {
       </form>
       </div>
       <div ref ={panelRef} className='h-[70%] bg-white h-0  '>
-        <LocationSearchPanel />
+        <LocationSearchPanel setPanelOpen={setPanelOpen}  setVehiclePanel={setVehiclePanel} />
 
       </div>
+     </div>
+     <div ref={vehiclePanelRef} className="fixed z-10 w-full bottom-0 translate-y-full bg-white px-3 py-10 pt-14">
+      <h5 className='p-1 text-center w-[93%] absolute top-0'> <i className=' text-3xl text-gray-200 ri-arrow-down-wide-line'> </i></h5>
+      <h3 className='text-3xl font-semibold mb-5'>
+         Choose a Vehicle </h3>
+
+      <div className ='flex border-2 active:border-black mb-2 rounded-xl  w-full  p-3 items-center justify-between  '>
+        <img  className='h-12'src="https://cn-geo1.uber.com/image-proc/crop/resizecrop/udam/format=auto/width=956/height=538/srcb64=aHR0cHM6Ly90Yi1zdGF0aWMudWJlci5jb20vcHJvZC91ZGFtLWFzc2V0cy85MDM0YzIwMC1jZTI5LTQ5ZjEtYmYzNS1lOWQyNTBlODIxN2EucG5n" alt="Car" />
+        <div className=' ml-2 w-1/2'>
+          <h4 className='font-medium text-base'> SafarGo 
+          <span>
+          <i className="ri-user-3-fill"></i> 4
+          </span>
+          </h4>
+          <h5 className='font-medium text-sm text-gray-600 font-normal'> 2 mins away </h5>
+          <p className='font-medium text-xs'> Affordable, compact rides </p>
+        </div>
+        <h2 className='text-md font-semibold'> Rs 200.04</h2>
+      </div>
+
+       <div className ='flex border-2 active:border-black mb-2 rounded-xl  w-full  p-3 items-center justify-between  '>
+        <img  className='h-12'src="https://cn-geo1.uber.com/image-proc/crop/resizecrop/udam/format=auto/width=552/height=368/srcb64=aHR0cHM6Ly90Yi1zdGF0aWMudWJlci5jb20vcHJvZC91ZGFtLWFzc2V0cy9mY2RkZWNhYS0yZWVlLTQ4ZmUtODdmMC02MTRhYTdjZWU3ZDMucG5n" alt="Moto" />
+        <div className=' ml-2 w-1/2'>
+          <h4 className='font-medium text-base'>  Moto 
+          <span>
+          <i className="ri-user-3-fill"></i> 2
+          </span>
+          </h4>
+          <h5 className='font-medium text-sm text-gray-600 font-normal'> 1 mins away </h5>
+          <p className='font-medium text-xs'> Affordable Bike  rides </p>
+        </div>
+        <h2 className='text-md font-semibold'> Rs 100.21</h2>
+      </div>
+
+       <div className ='flex border-2 active:border-black mb-2 rounded-xl  w-full  p-3 items-center justify-between  '>
+        <img  className='h-12'src="https://cn-geo1.uber.com/image-proc/crop/resizecrop/udam/format=auto/width=552/height=368/srcb64=aHR0cHM6Ly90Yi1zdGF0aWMudWJlci5jb20vcHJvZC91ZGFtLWFzc2V0cy8xZGRiOGM1Ni0wMjA0LTRjZTQtODFjZS01NmExMWEwN2ZlOTgucG5n" alt="Auto" />
+        <div className=' ml-2 w-1/2'>
+          <h4 className='font-medium text-base'> Auto 
+          <span>
+          <i className="ri-user-3-fill"></i> 3
+          </span>
+          </h4>
+          <h5 className='font-medium text-sm text-gray-600 font-normal'> 2 mins away </h5>
+          <p className='font-medium text-xs'> Affordable Auto  rides </p>
+        </div>
+        <h2 className='text-md font-semibold'> Rs 151.38</h2>
+      </div>
+
      </div>
     </div>
   )
