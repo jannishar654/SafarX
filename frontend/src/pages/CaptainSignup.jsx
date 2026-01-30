@@ -148,7 +148,7 @@ const CaptainSignup = () => {
               <option value="" disabled>Select Vehicle Type</option>
               <option value="car">Car</option>
               <option value="auto">Auto</option>
-              <option value="moto">Moto</option>
+              <option value="motorcycle">Moto</option>
            </select>
               
            <button
@@ -160,7 +160,7 @@ const CaptainSignup = () => {
          </div>
    
          <div>
-           <p className='text-[13px] flex justify-center leading-tight'> This site is protected by reCAPTCHA and the <span className='underline'> Google Privacy Policy </span> and <span className='underline'> Terms of Service apply</span>.</p>
+           <p className='text-[13px] mt-6 flex justify-center leading-tight'> This site is protected by reCAPTCHA and the <span className='underline'> Google Privacy Policy </span> and <span className='underline'> Terms of Service apply</span>.</p>
          </div>
        </div>
   )
