@@ -48,6 +48,12 @@ const rideSchema = new mongoose.Schema({
 
     signature:{
         type:String
+    },
+
+    otp:{
+        type:String,
+        select: false,   // kuki ditver ko send nhi karna hai 
+        required: true
     }
 
 
