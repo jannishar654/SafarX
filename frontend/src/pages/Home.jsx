@@ -29,6 +29,7 @@ const Home = () => {
    const [ pickupSuggestions, setPickupSuggestions ] = useState([])
    const [ destinationSuggestions , setDestinationSuggestions] = useState([])
    const [ activeField , setActiveField] = useState(null)
+   const [fare, setFare] = useState({})
 
   const handlePickupChange = async (e) => {
   setPickup(e.target.value)
@@ -146,10 +147,12 @@ const handleDestinationChange = async (e) => {
 
   }, [waitingForDriver])
 
-    function findTrip(){
+ async function findTrip(){
       setVehiclePanel(true)
       setPanelOpen(false)
-    }
+
+      
+ } 
 
   return (
     <div className='h-screen relative overflow-hidden'>
