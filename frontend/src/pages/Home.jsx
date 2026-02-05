@@ -161,7 +161,21 @@ const handleDestinationChange = async (e) => {
       setFare(response.data)
 
       
- } 
+ }
+ 
+async  function createRide(vehicleType){
+     const response = await axios.post(`${import.meta.env.VITE_BASE_URL}/rides/create` ,{
+      pickup,
+      destination,
+      vehicleType
+     },{
+       headers:{
+        Authorization: `Bearer ${localStorage.getItem('token')}`
+      }
+     })
+
+     console.log(response.data)
+ }
 
   return (
     <div className='h-screen relative overflow-hidden'>
@@ -230,7 +244,9 @@ const handleDestinationChange = async (e) => {
       </div>
      </div>
      <div ref={vehiclePanelRef} className="fixed z-10 w-full bottom-0 translate-y-full bg-white px-3 py-10 pt-12">
-      <VehiclePanel fare ={fare} setConfirmRidePanel={setConfirmRidePanel} setVehiclePanel={setVehiclePanel} />
+      <VehiclePanel 
+      createRide={createRide}
+      fare ={fare} setConfirmRidePanel={setConfirmRidePanel} setVehiclePanel={setVehiclePanel} />
      </div>
 
       <div ref={confirmRidePanelRef} className="fixed z-10 w-full bottom-0 translate-y-full bg-white px-3 py-6 pt-12">
