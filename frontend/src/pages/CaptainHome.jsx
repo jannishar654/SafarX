@@ -22,7 +22,9 @@ const CaptainHome = () => {
    const { socket } = useContext(SocketContext)
 
    const { captain } = useContext(CaptainDataContext)
-
+  
+    console.log('CAPTAIN FROM CONTEXT:', captain);
+console.log('CAPTAIN ID:', captain?._id);
    useEffect ( () =>{
     socket.emit('join',{
       userId: captain._id,
@@ -59,7 +61,11 @@ const CaptainHome = () => {
 //return () => clearInterval(locationInterval)
 
 
-   } )
+   } , [] )
+
+   socket.on('new-ride' , (data) =>{
+     console.log(data)
+   })
 
   
 
