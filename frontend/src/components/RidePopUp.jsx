@@ -52,6 +52,7 @@ const RidePopUp = (props) => {
 
          <button onClick = {() =>{
         props.setRidePopupPanel(false)
+        props.confirmRide()
        }} className= " mt-1 bg-gray-200 text-gray-700 font-semibold p-3 px-10 rounded-lg "> Ignore </button>
          <button onClick = {() =>{
         props.setConfirmRidePopupPanel(true)

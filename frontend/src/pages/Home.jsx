@@ -34,6 +34,7 @@ const Home = () => {
    const [ activeField , setActiveField] = useState(null)
    const [fare, setFare] = useState({})
    const [vehicleType, setVehicleType] = useState(null)
+   const [ ride, setRide] = useState(null)
 
    const { socket } = useContext(SocketContext)
    const { user } = useContext(UserDataContext)
@@ -41,6 +42,14 @@ const Home = () => {
    useEffect(() =>{
     socket.emit("join" , { userType:"user" , userId: user._id})
    },  [ user ])
+
+   socket.on('ride-confirmed' , ride =>{
+
+    setVehicleFound(false)
+    setWaitingForDriver(true)
+    setRide(ride)
+
+   })
 
 
   const handlePickupChange = async (e) => {
@@ -282,7 +291,11 @@ async  function createRide(){
      </div>
 
      <div  ref={WaitingForDriverRef} className="fixed z-10 w-full bottom-0  bg-white px-3 py-6 pt-12">
-       <WaitingForDriver waitingForDriver={waitingForDriver} />
+       <WaitingForDriver 
+       ride={ride}
+       setVehicleFound={setVehicleFound}
+       setWaitingForDriver={setWaitingForDriver}
+       waitingForDriver={waitingForDriver} />
      </div>
 
     </div>

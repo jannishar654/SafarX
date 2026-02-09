@@ -8,6 +8,7 @@ import ConfirmRidePopup from '../components/ConfirmRidePopup'
 import { useEffect, useContext } from 'react'
 import { SocketContext } from '../context/SocketContext'
 import { CaptainDataContext } from '../context/CaptainContext'
+import axios from 'axios'
 
 
 
@@ -70,6 +71,27 @@ const CaptainHome = () => {
     setRidePopupPanel(true)
   })
 
+  async function confirmRide() {
+
+    const response = await axios.post( `${import.meta.env.VITE_BASE_URL}/rides/confirm` ,{
+
+      rideId: ride._id,
+      captainId: captain._id, 
+
+      
+
+
+    }, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`
+      }
+    })
+
+    setRidePopupPanel(false)
+    setConfirmRidePopupPanel(true)
+
+  }
+
 
 
 
@@ -123,7 +145,10 @@ const CaptainHome = () => {
       <div ref={ridePopupPanelRef} className="fixed z-10 w-full bottom-0  translate-y-full bg-white px-3 py-10 pt-12">
         <RidePopUp 
         ride = { ride}
-        setRidePopupPanel={setRidePopupPanel} setConfirmRidePopupPanel={setConfirmRidePopupPanel} />
+        setRidePopupPanel={setRidePopupPanel} 
+        setConfirmRidePopupPanel={setConfirmRidePopupPanel}
+        confirmRide={confirmRide}
+        />
 
       </div>
 
