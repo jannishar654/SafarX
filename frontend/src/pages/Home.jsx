@@ -268,6 +268,7 @@ async  function createRide(){
       destination={destination}
       fare={fare}
       vehicleType={vehicleType}
+      
       setConfirmRidePanel={setConfirmRidePanel} setVehicleFound={setVehicleFound}  />
      </div>
 
