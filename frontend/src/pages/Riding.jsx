@@ -2,6 +2,7 @@ import React  from 'react'
 import { Link , useLocation , useNavigate } from 'react-router-dom'
 import {useEffect , useContext } from 'react'
 import { SocketContext } from '../context/SocketContext'
+import LiveTracking from '../components/LiveTracking'
 
 const Riding = () => {
 
@@ -24,7 +25,8 @@ const Riding = () => {
             </Link>
 
             <div className="h-1/2">
-                <img className='h-full w-full object-cover ' src="https://miro.medium.com/v2/resize:fit:1400/0*gwMx05pqII5hbfmX.gif" alt="Home Page" />
+                {/* <img className='h-full w-full object-cover ' src="https://miro.medium.com/v2/resize:fit:1400/0*gwMx05pqII5hbfmX.gif" alt="Home Page" /> */}
+                <LiveTracking />
 
             </div>
 
