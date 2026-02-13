@@ -1,6 +1,20 @@
 # SafarX 🚖
 
+![React](https://img.shields.io/badge/React-19.2.0-61DAFB?logo=react&logoColor=black)
+![Vite](https://img.shields.io/badge/Vite-7.2.4-646CFF?logo=vite&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.1.18-38B2AC?logo=tailwind-css&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-Runtime-339933?logo=node.js&logoColor=white)
+![Express](https://img.shields.io/badge/Express.js-5.2.1-000000?logo=express&logoColor=white)
+![MongoDB](https://img.shields.io/badge/MongoDB-Mongoose-47A248?logo=mongodb&logoColor=white)
+![Socket.io](https://img.shields.io/badge/Socket.io-4.8.3-010101?logo=socket.io&logoColor=white)
+![GSAP](https://img.shields.io/badge/GSAP-Animations-88CE02?logo=greensock&logoColor=white)
+![Google Maps](https://img.shields.io/badge/Google_Maps-API-4285F4?logo=google-maps&logoColor=white)
+![JWT](https://img.shields.io/badge/JWT-Auth-000000?logo=json-web-tokens&logoColor=white)
+
+
 **SafarX** is a full-stack ride-hailing application designed to connect users with captains (drivers) for seamless city commuting. Built with the **MERN stack** (MongoDB, Express, React, Node.js), it features real-time socket communication, interactive maps, and secure authentication for both passengers and drivers.
+
+
 
 ## 🚀 Features
 
