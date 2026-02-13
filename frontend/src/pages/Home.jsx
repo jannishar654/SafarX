@@ -209,7 +209,7 @@ async  function createRide(){
 
   return (
     <div className='h-screen relative overflow-hidden'>
-      <img className="w-16 absolute left-5 top-5" src="/HomeLogo.png" alt="Home Logo" />
+      <img className="w-16 absolute left-5 top-5" src="https://images.unsplash.com/photo-1760959575439-47e7a4b897e8?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Home Logo" />
      <div
      
       className='h-screen w-screen '>
