@@ -5,7 +5,7 @@ const Start = () => {
   return (
     <div>
       <div className=' bg-cover md:bg-contain
-  bg-center bg-no-repeat bg-[url("/HomeBg.png")] h-screen pt-8  flex justify-between flex-col w-full bg-red-400'>
+  bg-center bg-no-repeat bg-[url("https://images.unsplash.com/photo-1760959575439-47e7a4b897e8?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")] h-screen pt-8  flex justify-between flex-col w-full bg-red-400'>
         <img className='w-16 ml-8' src="/HomeLogo.png" alt="Logo" />
         <div className='bg-white pb-7 py-4 px-4'>
           <h2 className ='text-3xl font-bold'> Get Started with SafarX</h2>
