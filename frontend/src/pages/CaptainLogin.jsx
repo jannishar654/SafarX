@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { CaptainDataContext } from '../context/CaptainContext'  
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 const CaptainLogin = () => {
   const [email, setEmail] = useState('')
@@ -16,7 +18,8 @@ const CaptainLogin = () => {
     const submitHandler = async (e) =>{
       e.preventDefault()
       
-      const captain = {
+      try{
+        const captain = {
         email: email,
         password: password
       }
@@ -32,6 +35,9 @@ const CaptainLogin = () => {
       
       setEmail('')
       setPassword('')  // jab submit karo then khali ho jaayega 
+      } catch(err){
+        toast.error(err.response.data.message || 'Login failed')
+      }
     }
   return (
     <div className='p-7 flex flex-col justify-between h-screen'>

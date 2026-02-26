@@ -1,5 +1,8 @@
 import React from 'react';
 import { Route , Routes } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import Start from './pages/Start.jsx';
 import Home from './pages/Home.jsx';
 import UserLogin from './pages/UserLogin.jsx';
@@ -14,13 +17,11 @@ import CaptainLogout from './pages/CaptainLogout.jsx';
 import Riding from './pages/Riding.jsx';
 import CaptainRiding from './pages/CaptainRiding.jsx';
 
-
-
 const App = () => {
   return (
-    <div > 
-      <Routes>
+    <div> 
 
+      <Routes>
         <Route path="/" element={<Start />} />
         <Route path="/login" element={<UserLogin />} />
         <Route path="/riding" element={<Riding />} />
@@ -29,37 +30,48 @@ const App = () => {
         <Route path="/signup" element={<UserSignup />} />
         <Route path="/captain-login" element={<CaptainLogin />} />
         <Route path="/captain-signup" element={<CaptainSignup />} />
-        <Route path='/home' 
+
+        <Route 
+          path='/home' 
           element={
-          <UserProtectWrapper>
-            <Home/>
-          </UserProtectWrapper> 
-          } />
+            <UserProtectWrapper>
+              <Home/>
+            </UserProtectWrapper> 
+          } 
+        />
 
-       <Route path='/user/logout' 
+        <Route 
+          path='/user/logout' 
           element={
-         <UserProtectWrapper>
-           <UserLogout/>
-         </UserProtectWrapper>
-       } />
+            <UserProtectWrapper>
+              <UserLogout/>
+            </UserProtectWrapper>
+          } 
+        />
 
-       <Route path='/captain-home' element={
-        <CaptainProtectWrapper>
-           <CaptainHome />
-        </CaptainProtectWrapper>
-        
-       } />
-
-       <Route path='/captain/logout' 
+        <Route 
+          path='/captain-home' 
           element={
-         <CaptainProtectWrapper>
-           <CaptainLogout/>
-         </CaptainProtectWrapper>
-       } />
+            <CaptainProtectWrapper>
+              <CaptainHome />
+            </CaptainProtectWrapper>
+          } 
+        />
 
+        <Route 
+          path='/captain/logout' 
+          element={
+            <CaptainProtectWrapper>
+              <CaptainLogout/>
+            </CaptainProtectWrapper>
+          } 
+        />
       </Routes>
-      
-      </div>
+
+      {/* Toast Container Added */}
+      <ToastContainer position="top-right" />
+
+    </div>
   );
 }
 
